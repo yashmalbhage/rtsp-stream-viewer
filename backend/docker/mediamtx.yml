@@ -1,0 +1,14 @@
+# Minimal MediaMTX config for the built-in demo streams: RTSP over TCP only.
+logLevel: warn
+
+rtsp: yes
+protocols: [tcp]
+rtspAddress: :8554
+
+rtmp: no
+hls: no
+webrtc: no
+srt: no
+
+paths:
+  all_others:

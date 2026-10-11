@@ -1,0 +1,22 @@
+# One-command local demo:  docker compose up --build
+#   Frontend      http://localhost:5173
+#   Backend       http://localhost:8080
+#   Demo streams  rtsp://localhost:8554/demo1 and /demo2 (also playable in VLC)
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+      - "8554:8554"
+    environment:
+      DEMO_STREAMS: "true"
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_BACKEND_URL: http://localhost:8080
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend

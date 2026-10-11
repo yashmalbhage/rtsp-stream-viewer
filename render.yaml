@@ -1,0 +1,21 @@
+# Render blueprint for the Go backend (Docker, because it needs FFmpeg).
+services:
+  - type: web
+    name: rtsp-stream-viewer-backend
+    runtime: docker
+    plan: free
+    rootDir: backend
+    healthCheckPath: /healthz
+    envVars:
+      - key: PORT
+        value: "8080"
+      - key: DEMO_STREAMS
+        value: "true"
+      # Kept low because the free instance has a fraction of a CPU.
+      - key: STREAM_FPS
+        value: "10"
+      - key: STREAM_MAX_WIDTH
+        value: "640"
+      # After deploying the frontend, set this to its URL, e.g. https://your-frontend.onrender.com
+      - key: ALLOWED_ORIGINS
+        value: "*"
