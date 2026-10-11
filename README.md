@@ -6,7 +6,7 @@ Add RTSP stream URLs in the browser and watch them live, several at a time, in a
 - **Backend:** Go, FFmpeg, WebSockets
 - **Test streams:** MediaMTX + FFmpeg, built into the backend Docker image
 
-**Live demo:** _add your Render URL here after deploying_
+**Live demo:** https://rtsp-stream-viewer-1.onrender.com/
 
 ## How it works
 
